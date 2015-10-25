@@ -14,10 +14,13 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <executions>
+            <-- Disable the "default-compile" execution (used in the compile phase) -->
             <execution>
               <id>default-compile</id>
               <phase>none</phase>
             </execution>
+
+            <-- Compile module-info.java with source level 1.9 -->
             <execution>
               <id>compile-module-info-java</id>
               <phase>compile</phase>
@@ -32,6 +35,7 @@
                 </includes>
               </configuration>
             </execution>
+            <-- Compile the rest with a lower source level -->
             <execution>
               <id>compile-code</id>
               <phase>compile</phase>
