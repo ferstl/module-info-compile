@@ -8,19 +8,25 @@
     <artifactId>module-info-compile</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
+    <properties>
+      <java.version>1.7</java.version>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <build>
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.3</version>
           <executions>
-            <-- Disable the "default-compile" execution (used in the compile phase) -->
+            <!-- Disable the "default-compile" execution (used in the compile phase) -->
             <execution>
               <id>default-compile</id>
               <phase>none</phase>
             </execution>
 
-            <-- Compile all code except module-info.java with the configured source level -->
+            <!-- Compile all code except module-info.java with the configured source level -->
             <execution>
               <id>compile-code</id>
               <phase>compile</phase>
@@ -28,15 +34,15 @@
                 <goal>compile</goal>
               </goals>
               <configuration>
-                <source>1.7</source>
-                <target>1.7</target>
+                <source>${java.version}</source>
+                <target>${java.version}</target>
                 <excludes>
                   <exclude>module-info.java</exclude>
                 </excludes>
               </configuration>
             </execution>
 
-            <-- Compile module-info.java with source level 1.9 -->
+            <!-- Compile module-info.java with source level 1.9 -->
             <execution>
               <id>compile-module-info-java</id>
               <phase>compile</phase>
