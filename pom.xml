@@ -19,6 +19,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.3</version>
+          <configuration>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+          </configuration>
+
           <executions>
             <!-- Disable the "default-compile" execution (used in the compile phase) -->
             <execution>
@@ -34,8 +39,6 @@
                 <goal>compile</goal>
               </goals>
               <configuration>
-                <source>${java.version}</source>
-                <target>${java.version}</target>
                 <excludes>
                   <exclude>module-info.java</exclude>
                 </excludes>
